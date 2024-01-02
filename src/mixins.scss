@@ -1,33 +1,39 @@
+// Responsive mixin for small screens (min-width: 640px)
 @mixin sm {
     @media only screen and (min-width: 640px) {
         @content;
     }
 }
 
+// Responsive mixin for medium screens (min-width: 768px)
 @mixin md {
     @media only screen and (min-width: 768px) {
         @content;
     }
 }
 
+// Responsive mixin for large screens (min-width: 1024px)
 @mixin lg {
     @media only screen and (min-width: 1024px) {
         @content;
     }
 }
 
+// Responsive mixin for extra-large screens (min-width: 1280px)
 @mixin xl {
     @media only screen and (min-width: 1280px) {
         @content;
     }
 }
 
+// Responsive mixin for extra-extra-large screens (min-width: 1536px)
 @mixin xxl {
     @media only screen and (min-width: 1536px) {
         @content;
     }
 }
 
+// Ellipsis mixin for text truncation with specified number of lines (default: 2)
 @mixin ellipsis($line: 2) {
     display: -webkit-box;
     -webkit-line-clamp: $line;
