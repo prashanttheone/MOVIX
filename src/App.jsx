@@ -1,15 +1,9 @@
-// Importing necessary React hooks and components
-import { useState, useEffect } from 'react';
+// Importing necessary React modules and components
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-// Importing utility functions and Redux hooks
 import { fetchDataFromApi } from './utils/api';
 import { useSelector, useDispatch } from 'react-redux';
-
-// Importing Redux actions
 import { getApiConfiguration, getGenres } from './store/homeSlice';
-
-// Importing custom components
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Home from './pages/home/Home';
@@ -17,6 +11,9 @@ import Details from './pages/details/Details';
 import SearchResult from './pages/searchResult/SearchResult';
 import Explore from './pages/explore/Explore';
 import PageNotFound from './pages/404/PageNotFound';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Signup from './Signup';
+import Login from './Login';
 
 // Function component for the main App
 function App() {
@@ -36,14 +33,14 @@ function App() {
       console.log(res);
 
       // Creating URLs for different image types
-      const url = {
+      const apiUrl = {
         backdrop: res.images.secure_base_url + 'original',
         poster: res.images.secure_base_url + 'original',
         profile: res.images.secure_base_url + 'original',
       };
 
       // Dispatching the obtained configuration to Redux store
-      dispatch(getApiConfiguration(url));
+      dispatch(getApiConfiguration(apiUrl));
     });
   };
 
@@ -74,7 +71,10 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path='/' element={<Signup />} />
+        <Route path='/register' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
         <Route path="/:mediaType/:id" element={<Details />} />
         <Route path="/search/:query" element={<SearchResult />} />
         <Route path="/explore/:mediaType" element={<Explore />} />
@@ -84,6 +84,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 export default App;
