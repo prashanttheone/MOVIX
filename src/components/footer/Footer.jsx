@@ -22,15 +22,22 @@ const Footer = () => {
                     <li className="menuItem">FAQ</li>
                 </ul>
                 <div className="infoText">
-                THIS IS SITE HAS BEEN DESIGN AND DEVELOPED BY RAJ,HRISHABH AND PRASHANT
+                    THIS IS SITE HAS BEEN DESIGN AND DEVELOPED BY MR PRASHANT
                 </div>
                 <div className="socialIcons">
                     <span className="icon">
                         <FaFacebookF />
                     </span>
-                    <span className="icon">
-                        <FaInstagram />
-                    </span>
+                    <span className="icon" a>
+            <FaInstagram
+              onClick={() =>
+                window.open(
+                  "https://www.instagram.com/prashant_the_one/",
+                  "_blank"
+                )
+              }
+            />
+          </span>
                     <span className="icon">
                         <FaTwitter />
                     </span>
